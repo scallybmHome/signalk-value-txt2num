@@ -1,0 +1,23 @@
+{
+  "name": "signalk-value-txt2num",
+  "version": "0.3.0",
+  "description": "Signalk plugin that remaps path text value fields to a number",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scallybmHome/signalk-value-txt2num.git"
+  },
+  "keywords": [
+    "signalk-node-server-plugin",
+    "signalk-category-utility"
+  ],
+  "author": "Brian Scally",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scallybmHome/signalk-value-txt2num/issues"
+  },
+  "homepage": "https://github.com/scallybmHome/signalk-value-txt2num#readme"
+}
