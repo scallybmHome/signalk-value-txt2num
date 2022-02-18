@@ -1,4 +1,6 @@
 /*
+ * 0.3.2 updated description fields
+ * 
  * Copyright 2022 Brian Scally <scallybm@gmail.com>
  *
  * Licensed under the MIT license
@@ -60,9 +62,9 @@ module.exports = function(app) {
     unsubscribes = []
   }
 
-  plugin.id = "signalk-path-mapper"
-  plugin.name = "Path Mapper"
-  plugin.description = "SignalK Node Server Plugin that maps the paths of incoming Signal K deltas to different paths"
+  plugin.id = "signalk-value-txt2num"
+  plugin.name = "value txt2number"
+  plugin.description = "SignalK Node Server Plugin that maps text value strings to numberic values for easier plotting and control"
 
   plugin.schema = {
     type: "object",
