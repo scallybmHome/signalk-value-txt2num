@@ -28,10 +28,10 @@ module.exports = function(app) {
                     path: mapping.path,
                     value: pair.number
                   }]
-                }
+                }]
               })
             }
-          }
+          })
         }
       })
     })
@@ -98,7 +98,7 @@ module.exports = function(app) {
                     title: 'string to map',
                     description: 'The string to map from. (case sensitive)',
                     default: 'OK'
-                  }
+                  },
                   number: {
                     type: 'integer',
                     title: 'map to number',
