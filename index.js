@@ -1,5 +1,5 @@
 /*
- * 0.4.1 updated description fields
+ * 0.4.2 updated description fields
  * 
  * Copyright 2022 Brian Scally <scallybm@gmail.com>
  *
