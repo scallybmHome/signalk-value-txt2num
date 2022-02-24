@@ -1,5 +1,5 @@
 /*
- * 0.3.2 updated description fields
+ * 0.3.4 updated description fields
  * 
  * Copyright 2022 Brian Scally <scallybm@gmail.com>
  *
@@ -14,21 +14,22 @@ module.exports = function(app) {
 
   function mapValues(mappings, kps, key, source) {
     kps.forEach(pathValue => {
-      mappings.forEach(mapping => {
+      app.debug('txt2num:: %s %s %s %s', key, pathValue, source, mappings)
+      mappings.forEach((mapping, index, array) => {
         if (
             pathValue.path
             && (pathValue.path + '.').startsWith(mapping.path + '.')
-            && (mapping.source.contains(mapping.source))
+            && (mapping.source.includes(mapping.source))
         ) {
-          //app.debug('%s %s from %s to %s', key, pathValue.path, newPath)
-          mappings.pair.forEach( pair => {
-            if (pathValue.value == pair.string){
+          
+          array[index].pair.forEach( (couple, idx) => {
+            if (pathValue.value == array[index].pair[idx].string){
               app.handleMessage(plugin.id, {
               updates: [
                 {
                   values: [{
-                    path: mapping.path,
-                    value: pair.number
+                    path: mapping.path+"Number",
+                    value: array[index].pair[idx].number
                   }]
                 }]
               })
@@ -72,49 +73,3 @@ module.exports = function(app) {
       mappings: {
         type: "array",
         title: "Mappings",
-        items: {
-          type: "object",
-          required: [ 'path', 'pair' ],
-          properties: {
-            path: {
-              type: 'string',
-              title: 'Path',
-              description: 'The full Signal K path to map',
-              default: 'electrical.switches.bank.0.1'
-            },
-            source: {
-              type: 'string',
-              title: 'Source contians',
-              description: 'Source contains this keyword (case sensitive)',
-              default: 'YDEN'
-            },
-            pair: {
-              type: "array",
-              title: "pairs",
-              items:{
-                type: "object",
-                required: ['string', 'number' ],
-                properties: {
-                  string: {
-                    type: 'string',
-                    title: 'string to map',
-                    description: 'The string to map from. (case sensitive)',
-                    default: 'OK'
-                  },
-                  number: {
-                    type: 'integer',
-                    title: 'map to number',
-                    description: 'The number to map to',
-                    default: 1
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  return plugin;
-}
