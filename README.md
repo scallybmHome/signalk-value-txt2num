@@ -17,7 +17,7 @@ This plugin adds an "Path"+Number leaf that contains a numeric representation of
 
 To configure the plugin 
 
-![Plugin Config](https://github.com/scallybmHome/signalk-value-txt2num/blob/main/images/data_view.png)
+![Plugin Config](https://github.com/scallybmHome/signalk-value-txt2num/blob/main/images/config.png)
 
 Add the path where the test field exists, and a keyword that is contained in the source.
 
