@@ -1,5 +1,5 @@
 /*
- * 0.4.0 updated description fields
+ * 0.4.1 updated description fields
  * 
  * Copyright 2022 Brian Scally <scallybm@gmail.com>
  *
@@ -30,11 +30,11 @@ module.exports = function(app) {
                 outputNum = array[index].pair[idx].number;
               }
             })
-          } else if (pathValue.value.hasOwnProperty('message')){
-            app.debug('::mapValues.4:: Found key - message');
+          } else if (pathValue.value.hasOwnProperty(mapping.leafKey) && (typeof pathValue.value[mapping.leafKey] === 'string' || pathValue.value[mapping.leafKey] instanceof String)){
+            app.debug('::mapValues.4:: Found key - %s', mapping.leafKey);
             array[index].pair.forEach( (couple, idx) => {
               app.debug(array[index].pair[idx].string);
-              if (pathValue.value.message == array[index].pair[idx].string){
+              if (pathValue.value[mapping.leafKey] == array[index].pair[idx].string){
                 outputNum = array[index].pair[idx].number;
               }
             })
@@ -101,7 +101,13 @@ module.exports = function(app) {
               type: 'string',
               title: 'Source contians',
               description: 'Source contains this keyword (case sensitive)',
-              default: 'YDEN'
+              default: 'yden'
+            },
+            leafKey: {
+              type: 'string',
+              title: 'Leaf key',
+              description: 'When the value is a JSON enter the keyword (case sensitive)',
+              default: ''
             },
             pair: {
               type: "array",
